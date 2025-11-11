@@ -9,11 +9,11 @@ public class GrowandShrink : MonoBehaviour
     float scaleSpeed = 1.0f;
 
     [Tooltip("How often it changes direction")]
-    [SerializeField] 
+    [SerializeField]
     float frequency = 1.0f;
 
     [Tooltip(" Limit for the total scale change")]
-    [SerializeField] 
+    [SerializeField]
     float maxScaleChange = 0.3f;
 
     Vector3 baseScale;
