@@ -21,21 +21,28 @@ jobs:
       - name: Install dotnet-format
         run: dotnet tool install -g dotnet-format
 
+
       - name: Run dotnet-format (ShvuitA + ShvuitB)
         shell: bash
         run: |
-          set -euo pipefail
+          fail=0
 
           run_format () {
             local dir="$1"
             if [ -d "$dir" ]; then
               echo "Running dotnet-format in '$dir'..."
-              dotnet-format --check --folder "$dir" --verbosity diagnostic --include "**/*.cs"
+              if ! dotnet-format --check --folder "$dir" --verbosity minimal --include "**/*.cs"; then
+                echo "Formatting issues found in: $dir"
+                fail=1
+              else
+                echo "No issues in: $dir"
+              fi
             else
-              echo "Skipping: folder '$dir' not found."
+              echo "Skipping: '$dir' not found"
             fi
           }
 
           run_format "ShvuitA/Assets/Scripts"
           run_format "ShvuitB/Assets/Scripts"
 
+          exit $fail
