@@ -5,16 +5,16 @@
 public class GrowandShrink : MonoBehaviour
 {
     [Tooltip("How fast it grows/shrinks")]
-    [SerializeField] 
-    float scaleSpeed = 1.0f;       
+    [SerializeField]
+    float scaleSpeed = 1.0f;
 
     [Tooltip("How often it changes direction")]
     [SerializeField] 
-    float frequency = 1.0f;        
+    float frequency = 1.0f;
 
     [Tooltip(" Limit for the total scale change")]
     [SerializeField] 
-    float maxScaleChange = 0.3f;  
+    float maxScaleChange = 0.3f;
 
     Vector3 baseScale;
     float totalOffset = 0f; // How far we've scaled from the base size
