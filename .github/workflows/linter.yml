@@ -1,8 +1,8 @@
 name: Unity C# Linter
 
 on:
-  push:
-  pull_request:
+  push: # Trigger on every push
+  pull_request: # Also run on pull requests
 
 jobs:
   lint:
